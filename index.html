@@ -43,12 +43,12 @@ html,body{height:100%;margin:0;background:var(--deep);overflow:hidden}
 .vig{position:absolute;inset:0;background:radial-gradient(120% 100% at 50% 50%,transparent 55%,rgba(2,6,26,.75));pointer-events:none}
 
 /* content area scales to any ratio */
-.content{position:absolute;left:50%;top:50%;width:100em;height:47.6em;font-size:var(--u);transform:translate(-50%,-50%);
+.content{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;gap:5cqmin;padding:0 4cqw;
   animation:intro 1.4s cubic-bezier(.2,.8,.2,1) both}
-@keyframes intro{from{opacity:0;transform:translate(-50%,-50%) scale(.9);filter:blur(1.2em)}}
+@keyframes intro{from{opacity:0;transform:scale(.92);filter:blur(12px)}}
 
 /* logo HUD */
-.logo{position:absolute;left:6em;top:50%;width:38em;height:38em;margin-top:-19em;animation:bob 6s ease-in-out infinite}
+.logo{position:relative;flex:none;--s:min(86cqh,40cqw);width:var(--s);height:var(--s);font-size:calc(var(--s)/38);animation:bob 6s ease-in-out infinite}
 @keyframes bob{50%{transform:translateY(-1.2em)}}
 .logo svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
 .ring{fill:none;transform-origin:50% 50%}
@@ -76,12 +76,12 @@ html,body{height:100%;margin:0;background:var(--deep);overflow:hidden}
 /* crystals */
 .cube{position:absolute;opacity:.7;animation:float 8s ease-in-out infinite}
 .cube svg{width:100%;display:block;filter:drop-shadow(0 0 1em rgba(90,170,255,.7))}
-.c1{left:41em;top:3em;width:7em}.c2{right:1.5em;top:6em;width:10em;animation-delay:-3s}.c3{right:12em;bottom:2em;width:8em;animation-delay:-5s}
+.c1{left:36%;top:5%;width:11cqmin}.c2{right:2%;top:8%;width:15cqmin;animation-delay:-3s}.c3{right:12%;bottom:6%;width:12cqmin;animation-delay:-5s}
 @keyframes float{50%{transform:translateY(-2em) rotate(8deg)}}
 .c3 g{fill:rgba(232,196,106,.14);stroke:rgba(245,220,150,.75)}
 
 /* text card */
-.card{position:absolute;left:50em;right:5em;top:50%;height:25em;margin-top:-12.5em;border-radius:.8em;
+.card{position:relative;flex:1 1 0;min-width:0;--ch:min(72cqh,26cqw);height:var(--ch);max-width:calc(var(--ch)*3.4);font-size:calc(var(--ch)/25);border-radius:.8em;
   background:linear-gradient(135deg,rgba(20,60,160,.45),rgba(6,20,80,.35));
   -webkit-backdrop-filter:blur(.8em);backdrop-filter:blur(.8em);
   box-shadow:inset 0 0 0 .15em rgba(232,196,106,.5),0 0 3em rgba(40,110,255,.45);overflow:hidden}
@@ -112,6 +112,11 @@ html,body{height:100%;margin:0;background:var(--deep);overflow:hidden}
 .c.n7{font-family:"Exo 2","Segoe UI",Arial,sans-serif;font-weight:900}
 .ico{opacity:0;transform:rotate(-30deg) scale(.5);transition:opacity .7s ease,transform .8s cubic-bezier(.2,.8,.2,1)}
 .in .ico{opacity:1;transform:none}.out .ico{opacity:0;transition-duration:.4s}
+@container (max-aspect-ratio:1/1){
+  .content{flex-direction:column;padding:0}
+  .logo{--s:min(44cqh,76cqw)}
+  .card{flex:none;--ch:min(24cqh,46cqw);width:88cqw;max-width:none}
+}
 </style>
 </head>
 <body>
