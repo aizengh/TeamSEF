@@ -82,7 +82,7 @@ html,body{height:100%;margin:0;background:var(--deep);overflow:hidden}
 .c3 g{fill:rgba(232,196,106,.14);stroke:rgba(245,220,150,.75)}
 
 /* text card */
-.card{position:relative;flex:1 1 0;min-width:0;--ch:min(80cqh,26cqw);height:var(--ch);max-width:calc(var(--ch)*5.2);font-size:calc(var(--ch)/19);border-radius:.35em;
+.card{position:relative;flex:1 1 0;min-width:0;--fs:min(80cqh,26cqw);--ch:min(66cqh,22cqw);height:var(--ch);max-width:calc(var(--fs)*3.5);font-size:calc(var(--fs)/19);border-radius:.35em;
   background:linear-gradient(135deg,rgba(8,32,110,.93),rgba(3,10,52,.95));
   -webkit-backdrop-filter:blur(.8em);backdrop-filter:blur(.8em);
   box-shadow:inset 0 0 0 .22em var(--gold),inset 0 0 0 .6em rgba(3,10,52,.95),inset 0 0 0 .68em rgba(232,196,106,.4),0 0 3em rgba(40,110,255,.55),0 0 1.4em rgba(232,196,106,.5);overflow:hidden}
@@ -113,6 +113,19 @@ html,body{height:100%;margin:0;background:var(--deep);overflow:hidden}
 .c.n7{font-family:"Exo 2","Segoe UI",Arial,sans-serif;font-weight:900}
 .ico{opacity:0;transform:rotate(-30deg) scale(.5);transition:opacity .7s ease,transform .8s cubic-bezier(.2,.8,.2,1)}
 .in .ico{opacity:1;transform:none}.out .ico{opacity:0;transition-duration:.4s}
+/* cahaya pemisah di tepi atas */
+.topglow{position:absolute;left:0;right:0;top:0;height:42%;pointer-events:none;
+  background:linear-gradient(rgba(130,200,255,.6),rgba(70,140,255,.22) 40%,transparent);animation:tpulse 3.6s ease-in-out infinite}
+.topglow::before{content:"";position:absolute;inset:0;
+  background:radial-gradient(55% 100% at 50% 0%,rgba(255,236,180,.55),transparent 72%);animation:tsway 7s ease-in-out infinite alternate}
+@keyframes tpulse{50%{opacity:.65}}
+@keyframes tsway{from{transform:translateX(-22%)}to{transform:translateX(22%)}}
+.seam{position:absolute;left:0;right:0;top:0;height:max(3px,.9cqmin);z-index:4;pointer-events:none;
+  background:linear-gradient(90deg,rgba(232,196,106,.35),#fff6d0 50%,rgba(232,196,106,.35));
+  box-shadow:0 0 2.2cqmin .4cqmin rgba(255,225,140,.85),0 0 7cqmin rgba(80,160,255,.8)}
+.seam::after{content:"";position:absolute;top:-80%;bottom:-80%;width:16%;left:-20%;
+  background:linear-gradient(90deg,transparent,#fff,transparent);filter:blur(2px);animation:seamrun 3.4s ease-in-out infinite}
+@keyframes seamrun{0%{left:-20%}100%{left:105%}}
 /* aksen emas tambahan */
 .side{position:absolute;top:14%;bottom:14%;width:.7em;background:linear-gradient(var(--gold2),var(--gold) 50%,#a87a22);box-shadow:0 0 1.2em var(--gold)}
 .side.l{left:0;border-radius:0 .3em .3em 0}.side.r{right:0;border-radius:.3em 0 0 .3em}
@@ -126,7 +139,7 @@ html,body{height:100%;margin:0;background:var(--deep);overflow:hidden}
 @container (max-aspect-ratio:1/1){
   .content{flex-direction:column;padding:0}
   .logo{--s:min(44cqh,76cqw)}
-  .card{flex:none;--ch:min(24cqh,46cqw);width:88cqw;max-width:none}
+  .card{flex:none;--fs:min(24cqh,46cqw);--ch:min(24cqh,46cqw);width:88cqw;max-width:none}
 }
 </style>
 </head>
@@ -137,6 +150,7 @@ html,body{height:100%;margin:0;background:var(--deep);overflow:hidden}
   <div class="streak s1"></div><div class="streak s2"></div><div class="streak s3"></div>
   <canvas id="fx"></canvas>
   <div class="vig"></div>
+  <div class="topglow"></div><div class="seam"></div>
 
   <div class="content">
     <div class="cube c1"><svg viewBox="0 0 100 100"><g fill="rgba(110,170,255,.16)" stroke="rgba(210,230,255,.65)" stroke-width="2"><polygon points="50,5 92,28 92,72 50,95 8,72 8,28"/><polyline points="8,28 50,50 92,28" fill="none"/><line x1="50" y1="50" x2="50" y2="95"/></g></svg></div>
@@ -174,7 +188,7 @@ const CONFIG = {
   holdSeconds: 4.5,
   slides: [
     { icon: "link", lines: ["TEAMSEF"] },
-    { icon: "none", lines: ["DUNIA : SEFTJAKS"] }
+    { icon: "none", lines: ["DUNIA : SEFTG7"] }
   ]
 };
 /* ====== AKHIR PENGATURAN ====== */
