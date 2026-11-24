@@ -24,8 +24,8 @@ html,body{height:100%;margin:0;background:var(--deep);overflow:hidden}
 .g1{width:60%;height:80%;left:-8%;top:10%;background:radial-gradient(circle,#2f6bff,transparent 65%);animation:drift 12s ease-in-out infinite alternate}
 .g2{width:50%;height:70%;right:-10%;top:-15%;background:radial-gradient(circle,#2fb8ff,transparent 65%);opacity:.35;animation:drift 16s ease-in-out infinite alternate-reverse}
 @keyframes drift{to{transform:translate(10%,8%) scale(1.2)}}
-.g3{width:38%;height:50%;right:2%;bottom:-12%;background:radial-gradient(circle,#e8c46a,transparent 65%);opacity:.2;animation:drift 20s ease-in-out infinite alternate}
-.stage::before,.stage::after{content:"";position:absolute;left:0;right:0;height:.45cqmin;z-index:3;background:linear-gradient(90deg,transparent,var(--gold),transparent);opacity:.85;box-shadow:0 0 1.5cqmin var(--gold)}
+.g3{width:38%;height:50%;right:2%;bottom:-12%;background:radial-gradient(circle,#e8c46a,transparent 65%);opacity:.32;animation:drift 20s ease-in-out infinite alternate}
+.stage::before,.stage::after{content:"";position:absolute;left:0;right:0;height:max(2px,.7cqmin);z-index:3;background:linear-gradient(90deg,transparent,var(--gold),transparent);opacity:.85;box-shadow:0 0 1.5cqmin var(--gold)}
 .stage::before{top:0}.stage::after{bottom:0}
 .grid{position:absolute;left:-60%;right:-60%;bottom:-2%;height:55%;transform-origin:50% 100%;transform:perspective(50cqmin) rotateX(62deg);
   background:
@@ -48,13 +48,14 @@ html,body{height:100%;margin:0;background:var(--deep);overflow:hidden}
 @keyframes intro{from{opacity:0;transform:scale(.92);filter:blur(12px)}}
 
 /* logo HUD */
-.logo{position:relative;flex:none;--s:min(86cqh,40cqw);width:var(--s);height:var(--s);font-size:calc(var(--s)/38);animation:bob 6s ease-in-out infinite}
+.logo{position:relative;flex:none;--s:min(90cqh,40cqw);width:var(--s);height:var(--s);font-size:calc(var(--s)/38);animation:bob 6s ease-in-out infinite}
 @keyframes bob{50%{transform:translateY(-1.2em)}}
 .logo svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
 .ring{fill:none;transform-origin:50% 50%}
 .r1{stroke:rgba(150,200,255,.6);stroke-width:.35;stroke-dasharray:.6 1.9;animation:spin 70s linear infinite}
 .r2{stroke:var(--cyan);stroke-width:1.3;stroke-linecap:round;stroke-dasharray:70 270;filter:drop-shadow(0 0 .7em var(--cyan));animation:spin 6s linear infinite}
 .r3{stroke:var(--gold);stroke-width:1.2;stroke-linecap:round;stroke-dasharray:55 285;filter:drop-shadow(0 0 .7em var(--gold));animation:spin 9s linear infinite reverse}
+.r5{stroke:rgba(232,196,106,.8);stroke-width:.7;filter:drop-shadow(0 0 .5em var(--gold))}
 .r4{stroke:rgba(232,196,106,.75);stroke-width:.5;stroke-dasharray:6 4;animation:spin 40s linear infinite reverse}
 @keyframes spin{to{transform:rotate(360deg)}}
 .radar{position:absolute;inset:2em;border-radius:50%;
@@ -63,7 +64,7 @@ html,body{height:100%;margin:0;background:var(--deep);overflow:hidden}
   -webkit-mask-image:radial-gradient(circle,transparent 62%,#000 63%,#000 100%);mask-image:radial-gradient(circle,transparent 62%,#000 63%,#000 100%);opacity:.7}
 .orbit{position:absolute;inset:-1.2em;animation:spin 8s linear infinite}
 .orbit i{position:absolute;left:50%;top:0;width:1em;height:1em;margin-left:-.5em;border-radius:50%;background:#fff;box-shadow:0 0 1.6em .5em var(--gold)}
-.disc{position:absolute;inset:4.6em;border-radius:50%;overflow:hidden;border:.4em solid transparent;
+.disc{position:absolute;inset:4.6em;border-radius:50%;overflow:hidden;border:.6em solid transparent;
   background:linear-gradient(#0a1f55,#0a1f55) padding-box,linear-gradient(140deg,var(--gold2),var(--gold) 30%,var(--cyan) 62%,var(--blue)) border-box;
   box-shadow:0 0 5em rgba(47,120,255,.9),0 0 1.2em rgba(232,196,106,.55),inset 0 0 3em rgba(0,10,60,.8);animation:pulse 3s ease-in-out infinite}
 .disc img{width:100%;height:100%;object-fit:cover;display:block;animation:breathe 7s ease-in-out infinite}
@@ -81,26 +82,26 @@ html,body{height:100%;margin:0;background:var(--deep);overflow:hidden}
 .c3 g{fill:rgba(232,196,106,.14);stroke:rgba(245,220,150,.75)}
 
 /* text card */
-.card{position:relative;flex:1 1 0;min-width:0;--ch:min(72cqh,26cqw);height:var(--ch);max-width:calc(var(--ch)*3.4);font-size:calc(var(--ch)/25);border-radius:.8em;
-  background:linear-gradient(135deg,rgba(20,60,160,.45),rgba(6,20,80,.35));
+.card{position:relative;flex:1 1 0;min-width:0;--ch:min(80cqh,26cqw);height:var(--ch);max-width:calc(var(--ch)*5.2);font-size:calc(var(--ch)/19);border-radius:.35em;
+  background:linear-gradient(135deg,rgba(8,32,110,.93),rgba(3,10,52,.95));
   -webkit-backdrop-filter:blur(.8em);backdrop-filter:blur(.8em);
-  box-shadow:inset 0 0 0 .15em rgba(232,196,106,.5),0 0 3em rgba(40,110,255,.45);overflow:hidden}
+  box-shadow:inset 0 0 0 .22em var(--gold),inset 0 0 0 .6em rgba(3,10,52,.95),inset 0 0 0 .68em rgba(232,196,106,.4),0 0 3em rgba(40,110,255,.55),0 0 1.4em rgba(232,196,106,.5);overflow:hidden}
 .card::before{content:"";position:absolute;top:0;bottom:0;width:30%;left:-40%;transform:skewX(-18deg);
   background:linear-gradient(90deg,transparent,rgba(150,210,255,.22),transparent);animation:shine 5s ease-in-out infinite}
 .br{position:absolute;width:3em;height:3em;border:0 solid var(--gold);filter:drop-shadow(0 0 .5em var(--gold))}
-.br.tl{left:.8em;top:.8em;border-width:.25em 0 0 .25em}.br.tr{right:.8em;top:.8em;border-width:.25em .25em 0 0}
-.br.bl{left:.8em;bottom:.8em;border-width:0 0 .25em .25em}.br.bb{right:.8em;bottom:.8em;border-width:0 .25em .25em 0}
-.bar{position:absolute;left:3em;right:3em;bottom:2em;height:.22em;background:rgba(120,180,255,.2);border-radius:1em;overflow:hidden}
+.br.tl{left:1.1em;top:1.1em;border-width:.3em 0 0 .3em}.br.tr{right:1.1em;top:1.1em;border-width:.3em .3em 0 0}
+.br.bl{left:1.1em;bottom:1.1em;border-width:0 0 .3em .3em}.br.bb{right:1.1em;bottom:1.1em;border-width:0 .3em .3em 0}
+.bar{position:absolute;left:6em;right:6em;bottom:1.3em;height:.3em;background:rgba(120,180,255,.2);border-radius:1em;overflow:hidden}
 .bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,#b8862b,var(--gold),var(--gold2));box-shadow:0 0 1em var(--gold)}
 .bar.go i{animation:fill var(--hold,4.5s) linear forwards}
 @keyframes fill{to{width:100%}}
 
-.slide{position:absolute;left:3.2em;right:3.2em;top:50%;transform:translateY(-50%);display:flex;align-items:center;justify-content:center;gap:2em;visibility:hidden}
+.slide{position:absolute;left:4.2em;right:4.2em;top:48%;transform:translateY(-50%);display:flex;align-items:center;justify-content:center;gap:2.4em;visibility:hidden}
 .slide.in,.slide.out{visibility:visible}
-.ico{width:5.6em;flex:none;stroke:var(--gold);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;filter:drop-shadow(0 0 .8em var(--gold))}
+.ico{width:6.6em;flex:none;stroke:var(--gold);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;filter:drop-shadow(0 0 .8em var(--gold))}
 .lines{flex:0 1 auto;min-width:0;max-width:100%;text-align:center}
-.line{display:block;white-space:nowrap;font-weight:900;font-size:4.3em;line-height:1.45;letter-spacing:.14em;padding-left:.14em;width:max-content;margin-inline:auto;transform-origin:left center;
-  filter:drop-shadow(0 0 .35em rgba(70,150,255,.9)) drop-shadow(.05em .07em 0 rgba(3,10,60,.9))}
+.line{display:block;white-space:nowrap;font-weight:900;font-size:5.4em;line-height:1.35;letter-spacing:.12em;padding-left:.12em;width:max-content;margin-inline:auto;transform-origin:left center;
+  filter:drop-shadow(0 .05em 0 rgba(2,8,40,1)) drop-shadow(.06em .08em 0 rgba(2,8,40,.95)) drop-shadow(0 0 .3em rgba(70,150,255,.9))}
 @keyframes shimmer{to{background-position:-300% 0}}
 .c{display:inline-block;white-space:pre;opacity:0;transform:translateY(.7em) scale(.85);filter:blur(.3em);
   color:transparent;-webkit-text-fill-color:transparent;-webkit-background-clip:text;background-clip:text;background-size:300% 100%;
@@ -112,6 +113,16 @@ html,body{height:100%;margin:0;background:var(--deep);overflow:hidden}
 .c.n7{font-family:"Exo 2","Segoe UI",Arial,sans-serif;font-weight:900}
 .ico{opacity:0;transform:rotate(-30deg) scale(.5);transition:opacity .7s ease,transform .8s cubic-bezier(.2,.8,.2,1)}
 .in .ico{opacity:1;transform:none}.out .ico{opacity:0;transition-duration:.4s}
+/* aksen emas tambahan */
+.side{position:absolute;top:14%;bottom:14%;width:.7em;background:linear-gradient(var(--gold2),var(--gold) 50%,#a87a22);box-shadow:0 0 1.2em var(--gold)}
+.side.l{left:0;border-radius:0 .3em .3em 0}.side.r{right:0;border-radius:.3em 0 0 .3em}
+.gem{position:absolute;left:50%;width:1.1em;height:1.1em;margin-left:-.55em;transform:rotate(45deg);
+  background:linear-gradient(135deg,var(--gold2),var(--gold) 55%,#a87a22);box-shadow:0 0 1em var(--gold)}
+.gem.t{top:.55em}.gem.b{bottom:.55em}
+.lines::after{content:"";display:block;height:.24em;margin:.1em auto 0;width:0;border-radius:1em;
+  background:linear-gradient(90deg,transparent,var(--gold),var(--gold2),var(--gold),transparent);box-shadow:0 0 .8em var(--gold);
+  transition:width .9s cubic-bezier(.2,.8,.2,1) .4s}
+.in .lines::after{width:100%}.out .lines::after{width:0;transition-duration:.3s;transition-delay:0s}
 @container (max-aspect-ratio:1/1){
   .content{flex-direction:column;padding:0}
   .logo{--s:min(44cqh,76cqw)}
@@ -136,6 +147,7 @@ html,body{height:100%;margin:0;background:var(--deep);overflow:hidden}
       <svg viewBox="0 0 100 100">
         <circle class="ring r1" cx="50" cy="50" r="52" pathLength="360"/>
         <circle class="ring r4" cx="50" cy="50" r="49.5" pathLength="100"/>
+        <circle class="ring r5" cx="50" cy="50" r="43"/>
         <circle class="ring r2" cx="50" cy="50" r="47" pathLength="340"/>
         <circle class="ring r3" cx="50" cy="50" r="47" pathLength="340"/>
       </svg>
@@ -146,6 +158,7 @@ html,body{height:100%;margin:0;background:var(--deep);overflow:hidden}
 
     <div class="card" id="card">
       <span class="br tl"></span><span class="br tr"></span><span class="br bl"></span><span class="br bb"></span>
+      <span class="side l"></span><span class="side r"></span><span class="gem t"></span><span class="gem b"></span>
       <div id="panel"></div>
       <div class="bar" id="bar"><i></i></div>
     </div>
@@ -220,7 +233,7 @@ const LINK_ICON = '<svg class="ico" viewBox="0 0 24 24"><path d="M10 13a5 5 0 0 
   let W, H; const N = 55, P = [];
   function size(){ const d = Math.min(devicePixelRatio || 1, 1.5); W = cv.clientWidth; H = cv.clientHeight; cv.width = W * d; cv.height = H * d; cx.setTransform(d,0,0,d,0,0); }
   size(); addEventListener('resize', size);
-  for (let i = 0; i < N; i++) P.push({x:Math.random()*W,y:Math.random()*H,vx:(Math.random()-.5)*.35,vy:(Math.random()-.5)*.35,r:Math.random()*1.6+.6,g:Math.random()<.22});
+  for (let i = 0; i < N; i++) P.push({x:Math.random()*W,y:Math.random()*H,vx:(Math.random()-.5)*.35,vy:(Math.random()-.5)*.35,r:Math.random()*1.6+.6,g:Math.random()<.35});
   (function loop(){
     cx.clearRect(0,0,W,H);
     const D = Math.min(W,H) * .2;
